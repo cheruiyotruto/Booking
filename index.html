@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sprintup Services</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Contact Bar -->
+  <div class="top-bar">
+    <p>Welcome To Sprintup Services</p>
+    <div class="social-icons">
+      <a href="#"><img src="images/facebook (1).png" alt="Facebook"></a>
+      <a href="#"><img src="images/twitter (1).png" alt="Twitter"></a>
+      <a href="#"><img src="images/linkedin.png" alt="LinkedIn"></a>
+    </div>
+  </div>
+
+  <!-- Logo and Contact Row -->
+  <div class="logo-contact">
+    <div class="logo"><img src="images/logo1.png" alt="Kenya Travel Logo" /></div>
+    <div class="contact-info">
+      <div class="item">
+        <img src="images/phone.png" alt="Phone Icon">
+        <div>
+          <strong>Call Us</strong><br />254724792140
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/gmail (1).png" alt="Email Icon">
+        <div>
+          <strong>E-Mail Us</strong><br />info@sprintupservices.co.ke
+        </div>
+      </div>
+      <div class="item">
+        <img src="images/google-maps.png" alt="Location Icon">
+        <div>
+          <strong>Location</strong><br />Kericho, Kenya
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#booking">Booking</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- The rest of your sections stay the same below -->
+  <section id="home" class="home-section">
+    <div class="home-content">
+      <h1>Explore Kenya with Ease</h1>
+      <p>Your trusted travel partner for trips across Nairobi, Nakuru, Eldoret, Kisumu, and Kericho. Book your seat with ease and travel smart.</p>
+      <a href="#booking" class="cta-button">Book Now</a>
+    </div>
+  </section><section id="about1" class="section1">
+    <h2>About Us</h2>
+    <p><strong>Kenya Travel</strong> is a digital travel agency dedicated to simplifying transportation across Kenya. Founded by local entrepreneurs passionate about mobility, our goal is to provide easy and affordable intercity travel.</p>
+    <p>We partner with trusted transport companies to offer you seamless ticketing, real-time availability, and great customer service. We believe everyone should travel safely, comfortably, and with peace of mind.</p>
+    <br><p><strong>Our Vision:</strong> To become Kenya’s most trusted digital travel platform.</p>
+    <p><strong>Our Mission:</strong> To simplify, digitize, and enhance the Kenyan travel experience.</p>
+  </section>
+  
+<section id="pricing" class="section pricing-section">
+  <h2>Pricing</h2>
+  <p>Our pricing is transparent and competitive. Below are popular routes:</p>
+  <ul>
+    <li><strong>Nairobi to Nakuru</strong> – KES 800</li>
+    <li><strong>Nairobi to Eldoret</strong> – KES 1,200</li>
+    <li><strong>Kisumu to Kericho</strong> – KES 600</li>
+    <li><strong>Nakuru to Kericho</strong> – KES 700</li>
+    <li><strong>Eldoret to Kisumu</strong> – KES 1,100</li>
+  </ul>
+  <p>Prices may vary slightly depending on operator and date. All prices include standard luggage allowance and insurance.</p>
+</section>
+  <section id="booking">
+    <h2>Book Your Travel</h2>
+    <form id="bookingForm" onsubmit="handleBooking(event)">
+      <div class="form-row">
+        <label for="serviceType">Service Type:</label>
+        <select id="serviceType" name="serviceType" required onchange="toggleServiceFields()">
+          <option value="passenger">Passenger</option>
+          <option value="parcel">Parcel</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="vehicle">Vehicle Type:</label>
+        <select id="vehicle" name="vehicle" required onchange="calculateFare()">
+          <option value="bus">Bus</option>
+          <option value="14seater">14 Seater</option>
+          <option value="7seater">7 Seater</option>
+          <option value="saloon">Saloon Car</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="from">From:</label>
+        <select id="from" name="from" required></select>
+      </div>
+      <div class="form-row">
+        <label for="to">To:</label>
+        <select id="to" name="to" required></select>
+      </div>
+      <div class="form-row">
+        <label for="date">Travel Date:</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="form-row">
+        <label for="time">Preferred Time:</label>
+        <input type="time" id="time" name="time" required>
+      </div>
+      <div class="form-row" id="passengerFields">
+        <label for="passengers">Number of Passengers:</label>
+        <input type="number" id="passengers" name="passengers" min="1" value="1">
+      </div>
+      <div class="form-row" id="parcelFields" style="display: none;">
+        <label for="weight">Parcel Weight (kg):</label>
+        <input type="number" id="weight" name="weight" min="1">
+      </div>
+      <div class="form-row">
+        <label for="seat">Preferred Seat:</label>
+        <input type="text" id="seat" name="seat">
+      </div>
+      <div class="form-row">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-row">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="idnumber">National ID / Passport No.:</label>
+        <input type="text" id="idnumber" name="idnumber" required>
+      </div>
+      <div class="form-row">
+        <label for="price">Fare:</label>
+        <input type="text" id="price" name="priceDisplay" readonly>
+        <input type="hidden" id="priceValue" name="priceValue">
+        <input type="hidden" id="distanceValue" name="distanceValue">
+      </div>
+      <div class="form-row">
+        <label for="payment">Payment Option:</label>
+        <select id="payment" name="payment" required onchange="processPayment()">
+          <option value="">Select Payment Method</option>
+          <option value="mpesa">M-Pesa</option>
+          <option value="card">Card</option>
+          <option value="cash">Cash</option>
+        </select>
+      </div>
+      <div class="form-row center">
+        <button type="submit">Book Now</button>
+      </div>
+    </form>
+
+    <div id="receipt">
+      <img id="logo" src="logo.png" alt="Company Logo">
+      <h3>Booking Receipt</h3>
+      <p><strong>Name:</strong> <span id="rName"></span></p>
+      <p><strong>From:</strong> <span id="rFrom"></span> → <strong>To:</strong> <span id="rTo"></span></p>
+      <p><strong>Date:</strong> <span id="rDate"></span> @ <span id="rTime"></span></p>
+      <p><strong>Service Type:</strong> <span id="rServiceType"></span></p>
+      <p><strong>Vehicle:</strong> <span id="rVehicle"></span></p>
+      <p id="passengerReceipt"><strong>Passengers:</strong> <span id="rPassengers"></span></p>
+      <p id="parcelReceipt" style="display:none;"><strong>Parcel Weight:</strong> <span id="rWeight"></span> kg</p>
+      <p><strong>Seat:</strong> <span id="rSeat"></span></p>
+      <p><strong>Distance:</strong> <span id="rDistance"></span> km</p>
+      <p><strong>Fare:</strong> KES <span id="rFare"></span></p>
+      <p><strong>Payment:</strong> <span id="rPayment"></span></p>
+      <p><strong>Phone:</strong> <span id="rPhone"></span></p>
+      <p><strong>Email:</strong> <span id="rEmail"></span></p>
+      <button onclick="downloadPDF()">Download PDF</button>
+    </div>
+  </section>
+
+  <script>
+    const vehicleRates = {
+      bus: 1.0,
+      "14seater": 1.2,
+      "7seater": 1.4,
+      saloon: 1.6
+    };
+
+    const counties = ["Baringo", "Bomet", "Bungoma", "Busia", "Elgeyo Marakwet", "Embu", "Garissa", "Homa Bay", "Isiolo", "Kajiado", "Kakamega", "Kericho", "Kiambu", "Kilifi", "Kirinyaga", "Kisii", "Kisumu", "Kitui", "Kwale", "Laikipia", "Lamu", "Machakos", "Makueni", "Mandera", "Marsabit", "Meru", "Migori", "Mombasa", "Murang'a", "Nairobi", "Nakuru", "Nandi", "Narok", "Nyamira", "Nyandarua", "Nyeri", "Samburu", "Siaya", "Taita Taveta", "Tana River", "Tharaka Nithi", "Trans Nzoia", "Turkana", "Uasin Gishu", "Vihiga", "Wajir", "West Pokot"];
+
+    const fromSelect = document.getElementById("from");
+    const toSelect = document.getElementById("to");
+    counties.forEach(c => {
+      fromSelect.innerHTML += `<option value="${c}">${c}</option>`;
+      toSelect.innerHTML += `<option value="${c}">${c}</option>`;
+    });
+
+    const distanceMatrix = {};
+    fetch('https://raw.githubusercontent.com/openai/sample-distance-matrix/main/kenya-county-distances.json')
+      .then(res => res.json()).then(data => Object.assign(distanceMatrix, data));
+
+    fromSelect.addEventListener("change", calculateFare);
+    toSelect.addEventListener("change", calculateFare);
+
+    function toggleServiceFields() {
+      const type = document.getElementById("serviceType").value;
+      document.getElementById("passengerFields").style.display = type === "passenger" ? "block" : "none";
+      document.getElementById("parcelFields").style.display = type === "parcel" ? "block" : "none";
+      calculateFare();
+    }
+
+    function calculateFare() {
+      const from = document.getElementById("from").value;
+      const to = document.getElementById("to").value;
+      const vehicle = document.getElementById("vehicle").value;
+      const type = document.getElementById("serviceType").value;
+      const passengers = parseInt(document.getElementById("passengers").value || 1);
+      const weight = parseInt(document.getElementById("weight").value || 0);
+
+      if (!from || !to || from === to || !vehicle) return;
+
+      const key = `${from}-${to}`;
+      const revKey = `${to}-${from}`;
+      const distance = distanceMatrix[key] || distanceMatrix[revKey] || 250;
+      const ratePerKm = 10;
+      let fare = distance * ratePerKm * vehicleRates[vehicle];
+
+      if (type === "parcel") fare += weight * 20;
+      else fare *= passengers;
+
+      document.getElementById("price").value = `KES ${fare}`;
+      document.getElementById("priceValue").value = fare;
+      document.getElementById("distanceValue").value = distance;
+    }
+
+    async function processPayment() {
+      const payMethod = document.getElementById("payment").value;
+      if (payMethod && payMethod !== "cash") {
+        setTimeout(() => alert("Payment Successful via " + payMethod), 500);
+      }
+    }
+
+    async function handleBooking(e) {
+      e.preventDefault();
+      const fd = new FormData(document.getElementById("bookingForm"));
+      const data = Object.fromEntries(fd.entries());
+      ["rName", "rFrom", "rTo", "rDate", "rTime", "rSeat", "rPayment", "rPhone", "rEmail", "rVehicle"].forEach(id => {
+        document.getElementById(id).textContent = data[id.replace("r", "").toLowerCase()] || 'N/A';
+      });
+      document.getElementById("rDistance").textContent = data.distanceValue;
+      document.getElementById("rFare").textContent = data.priceValue;
+      document.getElementById("rServiceType").textContent = data.serviceType;
+      if (data.serviceType === "parcel") {
+        document.getElementById("rWeight").textContent = data.weight;
+        document.getElementById("passengerReceipt").style.display = "none";
+        document.getElementById("parcelReceipt").style.display = "block";
+      } else {
+        document.getElementById("rPassengers").textContent = data.passengers;
+        document.getElementById("passengerReceipt").style.display = "block";
+        document.getElementById("parcelReceipt").style.display = "none";
+      }
+      document.getElementById("receipt").style.display = "block";
+      await db.collection("bookings").add(data);
+    }
+
+    function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.text(document.getElementById("receipt").innerText, 10, 10);
+      doc.save("booking-receipt.pdf");
+    }
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+
+
+  <section id="contact" class="section">
+  <h2>Contact Us</h2>
+  <div style="text-align: center;">
+  <p >We’d love to hear from you. Please fill out the form below:</p>
+  </div>
+
+  <form class="contact-form" action="#" method="post">
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+    <label for="idNumber">National ID / Passport No.:</label>
+    <input type="text" id="idNumber" name="idNumber" placeholder="Enter your ID or Passport number" required>
+
+    <label for="message">Your Message:</label>
+    <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+ <footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Sprintup Services</h3>
+      <p>Kenya Travel is your trusted partner for seamless intercity transport bookings across Kenya. We make travel easy, secure, and affordable with digital convenience at your fingertips.</p>
+    </div>
+    <div class="footer-column">
+      <h3>POPULAR DESTINATIONS</h3>
+      <ul>
+        <li><a href="#">Nairobi</a></li>
+        <li><a href="#">Eldoret</a></li>
+        <li><a href="#">Kisumu</a></li>
+        <li><a href="#">Kericho</a></li>
+        <li><a href="#">Nakuru</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>OUR PARTNERS</h3>
+      <ul>
+        <li><a href="#">Modern Coast</a></li>
+        <li><a href="#">Easy Coach</a></li>
+        <li><a href="#">Transline</a></li>
+        <li><a href="#">Dreamline</a></li>
+        <li><a href="#">Mash Poa</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>GET IN TOUCH</h3>
+      <ul class="contact-info">
+        <li>📞 <a href="tel:+254700123456">+254 700 123456</a></li>
+        <li>📧 <a href="mailto:support@kenyatravel.co.ke">support@kenyatravel.co.ke</a></li>
+        <li>📍 <a href="#">Nairobi, Kenya</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Kenya Travel Booking. All rights reserved.<br>
+    Designed by <a href="#">KenyaTravel Team</a> | by <a href="#">General Cheruiyot Ruto</a></p>
+    <div class="social-icons">
+      <a href="#"><img src="images/twitter (1).png" alt="Twitter"></a>
+      <a href="#"><img src="images/facebook (1).png" alt="Facebook"></a>
+      <a href="#"><img src="images/linkedin.png" alt="LinkedIn"></a>
+      <a href="#"><img src="images/gmail (1).png" alt="Instagram"></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
+  <!-- Existing sections continue here... -->
+  <!-- features, top-routes, testimonials, about, pricing, booking, contact, footer -->
+<script src="script.js"></script>
+</body>
+</html>
